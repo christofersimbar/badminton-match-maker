@@ -18,6 +18,8 @@
 <body>
     <div class="container">
         <h1 class="my-4 text-center">Badminton Match Maker</h1>
+
+        <!-- Single Player Check-in -->
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" class="form-control">
@@ -31,7 +33,16 @@
             </select>
         </div>
         <button class="btn btn-primary mb-4" onclick="checkIn()">Check In</button>
-        
+
+        <!-- Bulk Player Check-in -->
+        <div class="form-group">
+            <label for="playerListInput">Bulk Check-in (Enter Players List):</label>
+            <textarea id="playerListInput" class="form-control" rows="5" placeholder="1. Andre (I)
+2. Chris (BP)
+3. Hansen Kurniawan (B)"></textarea>
+        </div>
+        <button class="btn btn-secondary mb-4" onclick="checkInFromList()">Check In from List</button>
+
         <h2>Players</h2>
         <ul id="playerList" class="list-group mb-4"></ul>
         
