@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton Match Maker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 720px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">Badminton Match Maker</h1>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="level">Level:</label>
+            <select id="level" class="form-control">
+                <option value="intermediate">Intermediate</option>
+                <option value="beginner_plus">Beginner Plus</option>
+                <option value="beginner">Beginner</option>
+            </select>
+        </div>
+        <button class="btn btn-primary mb-4" onclick="checkIn()">Check In</button>
+        
+        <h2>Players</h2>
+        <ul id="playerList" class="list-group mb-4"></ul>
+        
+        <div class="btn-group mb-4">
+            <button class="btn btn-success" onclick="createMatches()">Create Match</button>
+            <button class="btn btn-info" onclick="playMatches()">Play</button>
+            <button class="btn btn-warning" onclick="resetEverything()">Reset</button>
+        </div>
+        
+        <h2>Matches</h2>
+        <ul id="matchList" class="list-group mb-4"></ul>
+        
+        <h2>Running Games</h2>
+        <ul id="runningGamesList" class="list-group mb-4"></ul>
+
+        <h2>Status</h2>
+        <ul id="statusList" class="list-group mb-4"></ul>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
