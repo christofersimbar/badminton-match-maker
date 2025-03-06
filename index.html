@@ -20,11 +20,16 @@
         <h1 class="my-4 text-center">Badminton Match Maker</h1>
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" class="form-control">
+            <div class="input-group">
+                <input type="text" id="name" class="form-control" readonly>
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" onclick="showPlayerList()">Select Player</button>
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="level">Level:</label>
-            <select id="level" class="form-control">
+            <select id="level" class="form-control" disabled>
                 <option value="intermediate">Intermediate</option>
                 <option value="beginner_plus">Beginner Plus</option>
                 <option value="beginner">Beginner</option>
@@ -51,8 +56,67 @@
         <ul id="statusList" class="list-group mb-4"></ul>
     </div>
 
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <div id="playerSelectionModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Select a Player</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="playerSelectionList" class="list-group"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let players = [
+            { name: "Andre", level: "intermediate" },
+            { name: "Chris", level: "intermediate" },
+            { name: "Hansen", level: "beginner_plus" },
+            { name: "Ivan", level: "intermediate" },
+            { name: "Kelvin", level: "beginner_plus" },
+            { name: "Krishna", level: "beginner_plus" },
+            { name: "Mark", level: "beginner" },
+            { name: "Nicko", level: "beginner_plus" },
+            { name: "Revaldi", level: "beginner_plus" },
+            { name: "Riki", level: "beginner_plus" },
+            { name: "Roberto", level: "beginner_plus" },
+            { name: "Stanley", level: "beginner_plus" },
+            { name: "Timothy", level: "intermediate" },
+            { name: "Tjiang", level: "intermediate" },
+            { name: "Yogie", level: "intermediate" },
+            { name: "Celine", level: "beginner_plus" },
+            { name: "Fionne", level: "beginner" },
+            { name: "Lia", level: "beginner_plus" },
+            { name: "Rika", level: "beginner_plus" },
+            { name: "Yanti", level: "beginner_plus" },
+            { name: "Silvia", level: "beginner" }
+        ];
+
+        function showPlayerList() {
+            const list = document.getElementById("playerSelectionList");
+            list.innerHTML = "";
+            players.forEach((player, index) => {
+                const li = document.createElement("li");
+                li.className = "list-group-item list-group-item-action";
+                li.textContent = player.name;
+                li.onclick = function () {
+                    document.getElementById("name").value = player.name;
+                    document.getElementById("level").value = player.level;
+                    players.splice(index, 1); // Remove selected player
+                    $("#playerSelectionModal").modal("hide");
+                };
+                list.appendChild(li);
+            });
+            $("#playerSelectionModal").modal("show");
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
