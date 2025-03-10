@@ -19,7 +19,9 @@
 <body>
     <div class="container">
         <h1 class="my-4 text-center">Badminton Match Maker</h1>
+        <!--
         <h3 class="my-4 text-center">Exclusive for KETUS CLUB &#128514;&#128049;&#128513;</h3>
+        -->
         <div class="form-group">
             <label for="name">Name:</label>
             <div class="input-group">
@@ -45,18 +47,24 @@
         <div class="btn-group mb-4">
             <button class="btn btn-success" onclick="createMatches()">Create Match</button>
             <button class="btn btn-primary" onclick="promptCustomMatch()">Create Custom Match</button>
-            <button class="btn btn-info" onclick="playMatches()">Play</button>
+            <!--<button class="btn btn-info" onclick="playMatches()">Play</button>-->
             <button class="btn btn-warning" onclick="resetEverything()">Reset</button>
         </div>
         
+	<!--
         <h2>Matches</h2>
         <ul id="matchList" class="list-group mb-4"></ul>
+        -->
         
         <h2>Running Games</h2>
         <ul id="runningGamesList" class="list-group mb-4"></ul>
 
         <h2>Status</h2>
         <ul id="statusList" class="list-group mb-4"></ul>
+
+        <div class="btn-group mb-4">
+            <button class="btn btn-warning" onclick="resetEverything()">Reset</button>
+        </div>
     </div>
 
     <div id="playerSelectionModal" class="modal fade" tabindex="-1" role="dialog">
@@ -91,7 +99,7 @@
             { name: "Nicko", level: "beginner_plus" },
             { name: "Revaldi", level: "beginner_plus" },
             { name: "Reynard", level: "intermediate" },
-            { name: "Riki", level: "beginner_plus" },
+            { name: "Riki", level: "beginner" },
             { name: "Risky", level: "beginner_plus" },
             { name: "Roberto", level: "beginner_plus" },
             { name: "Stanley", level: "beginner_plus" },
@@ -99,14 +107,14 @@
             { name: "Timothy", level: "intermediate" },
             { name: "Tjiang", level: "intermediate" },
             { name: "Yogie", level: "intermediate" },
-            { name: "Celine", level: "beginner_plus" },
+            { name: "Celine", level: "beginner" },
             { name: "Fionne", level: "beginner" },
-            { name: "Lia", level: "beginner_plus" },
+            { name: "Lia", level: "beginner" },
             { name: "Rika", level: "beginner" },
             { name: "Retna", level: "beginner" },
             { name: "Silvia", level: "beginner" },
             { name: "Videlia", level: "beginner" },
-            { name: "Yanti", level: "beginner_plus" }
+            { name: "Yanti", level: "beginner" }
         ];
 
         function showPlayerList() {
