@@ -115,11 +115,12 @@
 
       // Define the whitelist
       const whitelist = ["ketus", "bsc"]
+      let players1 = [];
 
       // Check if the value is in the whitelist
       if (whitelist.includes(value)) {
         if (value === "bsc") {
-          let players1 = [
+          players1 = [
             { name: "ab", level: "intermediate" },
             { name: "dewey", level: "beginner_plus" },
             { name: "cunz", level: "intermediate" },
@@ -149,7 +150,7 @@
             { name: "ervin", level: "intermediate" }
           ]
         } else {
-          let players1 = [
+          players1 = [
             { name: "albertus", level: "beginner" },
             { name: "andre", level: "intermediate" },
             { name: "chandra", level: "beginner_plus" },
