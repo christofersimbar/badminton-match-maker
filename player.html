@@ -36,8 +36,8 @@
 
                 const data = await response.json();
 
-                if (data.statusCode === 200 && data.body && data.body.player_name) {
-                    document.getElementById("playerName").textContent = `Player: ${data.body.player_name}`;
+                if (data.statusCode === 200 && data.player_name) {
+                    document.getElementById("playerName").textContent = `Player: ${data.player_name}`;
                     document.getElementById("checkinBtn").style.display = "block"; // Show check-in button
                 } else {
                     document.getElementById("playerName").textContent = "Player not found!";
