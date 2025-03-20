@@ -148,7 +148,7 @@
               playerLink.target = "_blank"
 
               const copyButton = document.createElement("button")
-              copyButton.classList.add("btn", "btn-outline-secondary", "btn-sm")
+              copyButton.classList.add("btn", "btn-secondary")
               copyButton.textContent = "Copy URL"
               copyButton.onclick = () => {
                 navigator.clipboard.writeText(playerUrl).then(() => {
@@ -157,7 +157,7 @@
               }
 
               const removeButton = document.createElement("button")
-              removeButton.classList.add("btn", "btn-outline-danger", "btn-sm")
+              removeButton.classList.add("btn", "btn-danger")
               removeButton.textContent = "Remove"
               removeButton.onclick = () => removePlayer(player.encrypted_string)
 
