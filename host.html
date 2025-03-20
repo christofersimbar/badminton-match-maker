@@ -95,35 +95,46 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ action: "get_players", game_code: code }),
-          })
+          });
 
-          const data = await response.json()
-          console.log("Player Data:", data)
+          const data = await response.json();
+          console.log("Player Data:", data);
 
-          const playerList = document.getElementById("playerList")
-          playerList.innerHTML = "" // Clear existing list
+          const playerList = document.getElementById("playerList");
+          playerList.innerHTML = "";
 
           if (response.ok && Array.isArray(data) && data.length > 0) {
-            document.getElementById("playersHeader").classList.remove("d-none")
+            document.getElementById("playersHeader").classList.remove("d-none");
 
             data.forEach((player) => {
-              const playerItem = document.createElement("li")
-              playerItem.classList.add("list-group-item")
+              const playerItem = document.createElement("li");
+              playerItem.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
 
-              const playerLink = document.createElement("a")
-              playerLink.href = `https://badminton-match-maker.xt0.me/player.html?code=${player.encrypted_string}`
-              playerLink.textContent = player.player_name
-              playerLink.target = "_blank"
+              const playerLink = document.createElement("a");
+              const playerUrl = `https://badminton-match-maker.xt0.me/player.html?code=${player.encrypted_string}`;
+              playerLink.href = playerUrl;
+              playerLink.textContent = player.player_name;
+              playerLink.target = "_blank";
 
-              playerItem.appendChild(playerLink)
-              playerList.appendChild(playerItem)
-            })
+              const copyButton = document.createElement("button");
+              copyButton.classList.add("btn", "btn-outline-secondary", "btn-sm");
+              copyButton.textContent = "Copy URL";
+              copyButton.onclick = () => {
+                navigator.clipboard.writeText(playerUrl).then(() => {
+                  alert("Player URL copied to clipboard!");
+                });
+              };
+
+              playerItem.appendChild(playerLink);
+              playerItem.appendChild(copyButton);
+              playerList.appendChild(playerItem);
+            });
           } else {
-            document.getElementById("playersHeader").classList.add("d-none")
+            document.getElementById("playersHeader").classList.add("d-none");
           }
         } catch (error) {
-          console.error("Error fetching players:", error)
-          alert("Failed to fetch players. Check console for details.")
+          console.error("Error fetching players:", error);
+          alert("Failed to fetch players. Check console for details.");
         }
       }
 
