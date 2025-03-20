@@ -69,7 +69,7 @@
             gameCode = data[0].game_code
             document.getElementById("gameCodeDisplay").textContent = gameCode
             document.getElementById("gameName").value = data[0].game_name
-            document.getElementById("gameDate").value = data[0].date
+            document.getElementById("gameDate").value = data[0].game_date
             document.getElementById("gameLocation").value = data[0].location
 
             // Show the player registration form
@@ -140,7 +140,7 @@
             action: gameCode ? "update_game" : "create_game",
             game_code: gameCode || undefined,
             game_name: gameName,
-            date: gameDate,
+            game_date: gameDate,
             location: gameLocation,
           }
 
