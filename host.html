@@ -111,7 +111,7 @@
               playerItem.classList.add("list-group-item")
 
               const playerLink = document.createElement("a")
-              playerLink.href = `https://badminton-match-maker.xt0.me/player.html?code=${player.player_code}`
+              playerLink.href = `https://badminton-match-maker.xt0.me/player.html?code=${player.encrypted_string}`
               playerLink.textContent = player.player_name
               playerLink.target = "_blank"
 
