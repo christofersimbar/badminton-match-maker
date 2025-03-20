@@ -154,8 +154,8 @@
             const data = await response.json()
             console.log("Game Response:", data)
 
-            if (response.ok && data[0].game_code) {
-              gameCode = data[0].game_code
+            if (response.ok && data.game_code) {
+              gameCode = data.game_code
               document.getElementById("gameCodeDisplay").textContent = gameCode
               document
                 .getElementById("registerPlayersForm")
