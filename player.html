@@ -46,22 +46,9 @@
 
           const data = await response.json()
 
-          // Ensure data.body is parsed correctly
-          let responseBody
-          if (typeof data.body === "string") {
-            try {
-              responseBody = JSON.parse(data.body)
-            } catch (e) {
-              console.error("Error parsing response body:", e)
-              responseBody = {}
-            }
-          } else {
-            responseBody = data.body
-          }
-
-          if (data.statusCode === 200 && responseBody.player_name) {
+          if (data.statusCode === 200 && data.player_name) {
             document.getElementById("playerName").textContent =
-              `Player: ${responseBody.player_name}`
+              `Player: ${data.player_name}`
             document.getElementById("checkinBtn").style.display = "block" // Show check-in button
           } else {
             document.getElementById("playerName").textContent =
