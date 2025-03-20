@@ -65,12 +65,12 @@
           const data = await response.json()
           console.log("Game Data:", data)
 
-          if (response.ok && data.game_code) {
-            gameCode = data.game_code
+          if (response.ok && data[0].game_code) {
+            gameCode = data[0].game_code
             document.getElementById("gameCodeDisplay").textContent = gameCode
-            document.getElementById("gameName").value = data.game_name
-            document.getElementById("gameDate").value = data.date
-            document.getElementById("gameLocation").value = data.location
+            document.getElementById("gameName").value = data[0].game_name
+            document.getElementById("gameDate").value = data[0].date
+            document.getElementById("gameLocation").value = data[0].location
 
             // Show the player registration form
             document
