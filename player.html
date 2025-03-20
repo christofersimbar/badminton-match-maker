@@ -18,9 +18,9 @@
             return urlParams.get(param);
         }
         
-        const encrypted_string = getQueryParam("code");
+        const code = getQueryParam("code");
         
-        if (!encrypted) {
+        if (!code) {
             alert("Missing code in URL!");
         }
         
